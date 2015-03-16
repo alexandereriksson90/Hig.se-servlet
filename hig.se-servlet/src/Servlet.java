@@ -28,35 +28,22 @@ public class Servlet extends HttpServlet {
 		try (PrintWriter out = response.getWriter()) {
 			DataSource source1 = new FootballGoalsSource();
 			DataSource source2 = new SineWave();
-//			DataMatcher yearDm = new DataMatcher(source1, source2,
-//					Resolution.YEAR);
-//			Map<String, DataPair> yearResult = yearDm.searchDataForMatch()
-//					.getData();
 			DataMatcher monthDm = new DataMatcher(source1, source2,
 					Resolution.MONTH);
 			Map<String, DataPair> monthResult = monthDm.searchDataForMatch()
 					.getData();
-//			DataMatcher quarterDm = new DataMatcher(source1, source2,
-//					Resolution.QUARTER);
-//			Map<String, DataPair> quarterResult = quarterDm
-//					.searchDataForMatch().getData();
 			Genson genson = new Genson();
 			String str;
 			JsonFormater jsonf = new JsonFormater();
 
 			try {
-
-				if (request.getParameter("param").equals("true")) {
+				if (request.getParameter("pretty").equals("true")) {
 					str = genson.serialize(monthResult);
 					str = jsonf.format(str);
 					out.println(str);
-				} else if (request.getParameter("param").equals("false")) {
+				} else if (request.getParameter("pretty").equals("false")) {
 					str = genson.serialize(monthResult);
 					out.println(str);
-				} else if (request.getParameter("param").equals("year")) {
-
-				} else if (request.getParameter("param").equals("quarter")) {
-
 				} else {
 					str = genson.serialize(monthResult);
 					out.println(str);
@@ -66,13 +53,6 @@ public class Servlet extends HttpServlet {
 				out.println(str);
 			}
 
-			// str = genson.serialize(yearResult);
-			// String str1 = genson.serialize(monthResult);
-			// String str2 = genson.serialize(quarterResult);
-
-			// out.println(request.getParameter("maram"));
-			// out.println(str2);
-			// out.println(str);
 		}
 	}
 
@@ -90,7 +70,7 @@ public class Servlet extends HttpServlet {
 
 	@Override
 	public String getServletInfo() {
-		return "Short description";
+		return "Statistik-servlet";
 	}
 
 }
