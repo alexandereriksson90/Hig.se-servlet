@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.20/lib/servlet-api.jar"/>
 	<classpathentry kind="src" path="/hig-domain1"/>
 	<classpathentry kind="lib" path="C:/Users/Alexander/git/Hig.se-servlet/hig.se-servlet/WebContent/WEB-INF/lib/genson-1.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

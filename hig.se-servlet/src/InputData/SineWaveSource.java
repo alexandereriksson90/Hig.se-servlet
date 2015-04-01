@@ -8,7 +8,7 @@ import domain.DataSource;
 /**
  * @author Alexander Eriksson nbt12aen
  */
-public class SineWave implements DataSource {
+public class SineWaveSource implements DataSource {
 
 	@Override
 	public String getName() {

@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import InputData.DataSourceFactory;
 import com.owlike.genson.Genson;
 
 import domain.DataMatcher;
 import domain.DataPair;
 import domain.DataSource;
 import domain.Resolution;
-import InputData.FootballGoalsSource;
-import InputData.SineWave;
 
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
@@ -26,18 +25,23 @@ public class Servlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		try (PrintWriter out = response.getWriter()) {
-			DataSource source1 = new FootballGoalsSource();
-			DataSource source2 = new SineWave();
-			DataMatcher monthDm = new DataMatcher(source1, source2,
-					Resolution.MONTH);
-			Map<String, DataPair> monthResult = monthDm.searchDataForMatch()
-					.getData();
-			Genson genson = new Genson();
 			String str;
+			Genson genson = new Genson();
 			JsonFormater jsonf = new JsonFormater();
+			Map<String, DataPair> monthResult = null;
 
 			try {
-				if (request.getParameter("pretty").equals("true")) {
+				DataSource source1 = DataSourceFactory.getDataSource(request
+						.getParameter("datasource1"));
+				DataSource source2 = DataSourceFactory.getDataSource(request
+						.getParameter("datasource2"));
+				DataMatcher monthDm = new DataMatcher(source1, source2,
+						Resolution.MONTH);
+				monthResult = monthDm.searchDataForMatch().getData();
+				if (monthResult.isEmpty()) {
+					str = "Inga matchande data";
+					out.println(str);
+				} else if (request.getParameter("pretty").equals("true")) {
 					str = genson.serialize(monthResult);
 					str = jsonf.format(str);
 					out.println(str);
@@ -48,8 +52,9 @@ public class Servlet extends HttpServlet {
 					str = genson.serialize(monthResult);
 					out.println(str);
 				}
-			} catch (NullPointerException e) {
-				str = genson.serialize(monthResult);
+
+			} catch (RuntimeException e) {
+				str = "Felinparametrar valda!";
 				out.println(str);
 			}
 
