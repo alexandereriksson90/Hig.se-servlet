@@ -12,5 +12,6 @@
 	<classpathentry kind="src" path="/hig-domain1"/>
 	<classpathentry kind="lib" path="C:/Users/Alexander/git/Hig.se-servlet/hig.se-servlet/WebContent/WEB-INF/lib/genson-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Alexander/git/Hig.se-servlet/hig.se-servlet/WebContent/WEB-INF/lib/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
