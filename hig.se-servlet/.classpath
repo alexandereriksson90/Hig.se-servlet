@@ -8,7 +8,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.20/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.20/lib/servlet-api.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="/hig-domain1"/>
 	<classpathentry kind="lib" path="C:/Users/Alexander/git/Hig.se-servlet/hig.se-servlet/WebContent/WEB-INF/lib/genson-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>

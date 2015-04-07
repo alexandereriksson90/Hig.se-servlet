@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thomas
+ * @author nbt12aen
  */
 @SuppressWarnings("serial")
 public class SimpleServlet extends HttpServlet {
