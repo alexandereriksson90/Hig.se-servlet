@@ -28,7 +28,7 @@ public class HockeyGoalsTest {
 					.get("homeTeam");
 			if (hej.get("name").toString().equals("New York Rangers")) {
 				System.out.println("New York Rangers mål gjorda hemma: " + date
-						+ " Mål: " + goals);
+						+ " Målg: " + goals);
 			}
 
 		}
