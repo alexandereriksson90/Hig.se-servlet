@@ -7,7 +7,7 @@ import domain.DataPair;
 import domain.DataSource;
 import domain.Resolution;
 import InputData.FootballGoalsSource;
-import InputData.SineWave;
+import InputData.SineWaveSource;
 /**
  * @author Alexander Eriksson nbt12aen
  */
@@ -16,7 +16,7 @@ public class FootballSinewaveTest {
 	
 	public static void main(String[] args) {
 		DataSource source1 = new FootballGoalsSource();
-		DataSource source2 = new SineWave();
+		DataSource source2 = new SineWaveSource();
 		DataMatcher yearDm = new DataMatcher(source1, source2, Resolution.YEAR);
 		Map<String, DataPair> yearResult = yearDm.searchDataForMatch().getData();
 		DataMatcher monthDm = new DataMatcher(source1, source2, Resolution.MONTH);

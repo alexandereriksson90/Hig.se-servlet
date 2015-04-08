@@ -17,7 +17,7 @@ import domain.DataSource;
 import domain.Resolution;
 import domain.ResultingData;
 import InputData.FootballGoalsSource;
-import InputData.SineWave;
+import InputData.SineWaveSource;
 
 public class DataMatcherRealDataTest {
 	private DataSource source1, source2;
@@ -26,7 +26,7 @@ public class DataMatcherRealDataTest {
 	@Before
 	public void setUp() throws Exception {
 		source1 = new FootballGoalsSource();
-		source2 = new SineWave();
+		source2 = new SineWaveSource();
 		
 	}
 

@@ -7,7 +7,7 @@ import domain.DataPair;
 import domain.DataSource;
 import domain.Resolution;
 import InputData.HockeyGoalsSource;
-import InputData.RainVolume;
+import InputData.RainVolumeSource;
 /**
  * @author Alexander Eriksson nbt12aen
  */
@@ -16,7 +16,7 @@ public class HockeyRainVolumeTest {
 	
 	public static void main(String[] args) {
 		DataSource source1 = new HockeyGoalsSource();
-		DataSource source2 = new RainVolume();
+		DataSource source2 = new RainVolumeSource();
 		DataMatcher yearDm = new DataMatcher(source1, source2, Resolution.YEAR);
 		Map<String, DataPair> yearResult = yearDm.searchDataForMatch().getData();
 		DataMatcher monthDm = new DataMatcher(source1, source2, Resolution.MONTH);
